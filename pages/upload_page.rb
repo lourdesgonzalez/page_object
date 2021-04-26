@@ -5,7 +5,7 @@ class Upload < BasePage
 
     def upload_button
         @browser.input(class: 'button')
-    end 
+    end
 
     def box_drag_and_drop
         @browser.div(id: 'drag-drop-upload')
@@ -14,4 +14,8 @@ class Upload < BasePage
     def internal_error
         @browser.h1(text: 'Internal Server Error')
     end
-end 
+
+  def uploaded_files
+    @browser.div(id: 'uploaded-files')
+  end
+end
