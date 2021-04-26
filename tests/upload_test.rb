@@ -9,7 +9,7 @@ require "../pages/main.rb"
 require "../pages/upload_page.rb"
 
 class UploadTest
-    #include RSpec::Matchers
+    include RSpec::Matchers
     #include Watir::FileField
 
     def caso_1 #testing "Seleccionar archivo" button functionality
@@ -18,8 +18,14 @@ class UploadTest
         context.go_to('https://the-internet.herokuapp.com/')
         context.upload_link.click
         context = Upload.new(context.browser)
+        context.select_file.set('C:\Users\LULI\Desktop\CURSO DE PROGRAMACION\testing\herokutests\page_object\sample.pdf')
+        #expect(context.select_file.should end_with("sample.pdf").to be(true) 
         binding.pry
-      context.select_file.set('C:\Users\LULI\Desktop\CURSO DE PROGRAMACION\testing\herokutests\page_object\sample.pdf')
+        expect(context.select_file.value).toEqual('sample.pdf')
+        expect(context.select_file.value.include?("sample.pdf")).to be(true)
+        expect(context.select_file.value).to be("sample.pdf") 
+        expect(context.select_file.value).to eq("sample.pdf")
+        sleep 5
        #File.dirname(__FILE__)
        #.set(File.expand_path(File.new("./fixtures/credit_report.html")))
         #context.select_file.set(File.expand_path(File.new("./sample.pdf")))
@@ -31,6 +37,9 @@ class UploadTest
         context.go_to('https://the-internet.herokuapp.com/')
         context.upload_link.click
         context = Upload.new(context.browser)
+        context.select_file.set('C:\Users\LULI\Desktop\CURSO DE PROGRAMACION\testing\herokutests\page_object\sample.pdf')
+        context.upload_button.click
+
     end
 
 
