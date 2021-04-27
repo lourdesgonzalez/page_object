@@ -2,10 +2,10 @@ require 'watir'
 require 'pry'
 require 'rspec'
 require "rspec/expectations"
-require "./support/driver.rb"
-require "./pages/base.rb"
-require "./pages/main.rb"
-require "./pages/upload_page.rb"
+require "../support/driver.rb"
+require "../pages/base.rb"
+require "../pages/main.rb"
+require "../pages/upload_page.rb"
 
 class UploadTest
   include RSpec::Matchers
@@ -62,4 +62,4 @@ end
 end
 
 test1 = UploadTest.new
-test1.caso_1
+test1.test_upload_file
