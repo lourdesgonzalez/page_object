@@ -10,7 +10,7 @@ require '../pages/input_page.rb'
 class InputsTest
   include RSpec::Matchers
 
-  def caso_1 # check enabled input
+  def caso_1 
     driver = Driver.new 
     context = Main.new(driver.new_browser)
     context.go_to('https://the-internet.herokuapp.com/')
