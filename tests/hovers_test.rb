@@ -11,9 +11,9 @@ class HoversTest
   include RSpec::Matchers
 
   def caso_1
-    driver = Driver.new 
-    context = Main.new(driver.new_browser)   
-    context.go_to('https://the-internet.herokuapp.com/')   
+    driver = Driver.new
+    context = Main.new(driver.new_browser)
+    context.go_to('https://the-internet.herokuapp.com/')
     context.hovers_link.click
     context = Hovers.new(context.browser)
     context.first_image.hover
@@ -25,12 +25,14 @@ class HoversTest
     context.third_image.hover
     expect(context.third_user.present?).to be(true)
     expect(context.view_profile_link_us3.present?).to be(true)
-  end 
+    context.browser.close
+    context.browser.quit
+  end
 
   def caso_2
-    driver = Driver.new 
-    context = Main.new(driver.new_browser)   
-    context.go_to('https://the-internet.herokuapp.com/')   
+    driver = Driver.new
+    context = Main.new(driver.new_browser)
+    context.go_to('https://the-internet.herokuapp.com/')
     context.hovers_link.click
     context = Hovers.new(context.browser)
     context.first_image.hover
@@ -38,12 +40,14 @@ class HoversTest
     expect(context.view_profile_link_us1.present?).to be(true)
     context.view_profile_link_us1.click
     expect(context.error.present?).to be(true)
+    context.browser.close
+    context.browser.quit
   end
 
   def caso_3
-    driver = Driver.new 
-    context = Main.new(driver.new_browser)   
-    context.go_to('https://the-internet.herokuapp.com/')   
+    driver = Driver.new
+    context = Main.new(driver.new_browser)
+    context.go_to('https://the-internet.herokuapp.com/')
     context.hovers_link.click
     context = Hovers.new(context.browser)
     context.second_image.hover
@@ -51,12 +55,14 @@ class HoversTest
     expect(context.view_profile_link_us2.present?).to be(true)
     context.view_profile_link_us2.click
     expect(context.error.present?).to be(true)
-  end 
+    context.browser.close
+    context.browser.quit
+  end
 
   def caso_4
-    driver = Driver.new 
-    context = Main.new(driver.new_browser)   
-    context.go_to('https://the-internet.herokuapp.com/')   
+    driver = Driver.new
+    context = Main.new(driver.new_browser)
+    context.go_to('https://the-internet.herokuapp.com/')
     context.hovers_link.click
     context = Hovers.new(context.browser)
     context.third_image.hover
@@ -64,8 +70,10 @@ class HoversTest
     expect(context.view_profile_link_us3.present?).to be(true)
     context.view_profile_link_us3.click
     expect(context.error.present?).to be(true)
+    context.browser.close
+    context.browser.quit
   end
-end 
+end
 
 test_hovers = HoversTest.new
 test_hovers.caso_1

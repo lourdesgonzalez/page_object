@@ -11,9 +11,9 @@ class FormAuthenticationTest
   include RSpec::Matchers
 
   def caso_1
-    driver = Driver.new 
-    context = Main.new(driver.new_browser)   
-    context.go_to('https://the-internet.herokuapp.com/')   
+    driver = Driver.new
+    context = Main.new(driver.new_browser)
+    context.go_to('https://the-internet.herokuapp.com/')
     context.form_authentication_link.click
     context = FormAuthentication.new(context.browser)
     context.enabled_input_username.send_keys('tomsmith')
@@ -25,21 +25,21 @@ class FormAuthenticationTest
   end
 
   def caso_2
-    driver = Driver.new 
-    context = Main.new(driver.new_browser)   
-    context.go_to('https://the-internet.herokuapp.com/')   
+    driver = Driver.new
+    context = Main.new(driver.new_browser)
+    context.go_to('https://the-internet.herokuapp.com/')
     context.form_authentication_link.click
     context = FormAuthentication.new(context.browser)
     context.login_button.click
-    expect(context.invalid_text.present?).to be(true)  
+    expect(context.invalid_text.present?).to be(true)
     context.browser.close
     context.browser.quit
   end
-    
+
   def caso_3
-    driver = Driver.new 
-    context = Main.new(driver.new_browser)   
-    context.go_to('https://the-internet.herokuapp.com/')   
+    driver = Driver.new
+    context = Main.new(driver.new_browser)
+    context.go_to('https://the-internet.herokuapp.com/')
     context.form_authentication_link.click
     context = FormAuthentication.new(context.browser)
     context.enabled_input_username.send_keys('lourdes')
@@ -51,9 +51,9 @@ class FormAuthenticationTest
   end
 
   def caso_4
-    driver = Driver.new 
-    context = Main.new(driver.new_browser)   
-    context.go_to('https://the-internet.herokuapp.com/')   
+    driver = Driver.new
+    context = Main.new(driver.new_browser)
+    context.go_to('https://the-internet.herokuapp.com/')
     context.form_authentication_link.click
     context = FormAuthentication.new(context.browser)
     context.enabled_input_username.send_keys('tomsmith')
@@ -62,8 +62,8 @@ class FormAuthenticationTest
     expect(context.invalid_text.present?).to be(true)
     context.browser.close
     context.browser.quit
-  end 
-end 
+  end
+end
 
 test_form_authentication = FormAuthenticationTest.new
 test_form_authentication.caso_1

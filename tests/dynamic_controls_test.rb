@@ -11,37 +11,37 @@ class DynamicControlsTest
   include RSpec::Matchers
 
   def caso_1
-    driver = Driver.new 
-    context = Main.new(driver.new_browser)  
+    driver = Driver.new
+    context = Main.new(driver.new_browser)
     context.go_to('https://the-internet.herokuapp.com/')
     context.dynamic_controls_link.click
-    context = DynamicControls.new(context.browser)          
+    context = DynamicControls.new(context.browser)
     context.checkbox.click
     context.browser.close
     context.browser.quit
-  end 
+  end
 
   def caso_2
-    driver = Driver.new 
-    context = Main.new(driver.new_browser)  
+    driver = Driver.new
+    context = Main.new(driver.new_browser)
     context.go_to('https://the-internet.herokuapp.com/')
     context.dynamic_controls_link.click
-    context = DynamicControls.new(context.browser) 
+    context = DynamicControls.new(context.browser)
     context.remove_button.click
     context.loading.wait_until(&:present?)
-    context.loading.wait_while(&:present?)  
+    context.loading.wait_while(&:present?)
     expect(context.checkbox.present?).to be(false)
     expect(context.add_button.present?).to be(true)
     context.browser.close
-    context.browser.quit                     
+    context.browser.quit
   end
 
   def caso_3
-    driver = Driver.new 
-    context = Main.new(driver.new_browser)  
+    driver = Driver.new
+    context = Main.new(driver.new_browser)
     context.go_to('https://the-internet.herokuapp.com/')
     context.dynamic_controls_link.click
-    context = DynamicControls.new(context.browser) 
+    context = DynamicControls.new(context.browser)
     context.remove_button.click
     context.loading.wait_until(&:present?)
     context.loading.wait_while(&:present?)
@@ -56,8 +56,8 @@ class DynamicControlsTest
   end
 
   def caso_4
-    driver = Driver.new 
-    context = Main.new(driver.new_browser)  
+    driver = Driver.new
+    context = Main.new(driver.new_browser)
     context.go_to('https://the-internet.herokuapp.com/')
     context.dynamic_controls_link.click
     context = DynamicControls.new(context.browser)
@@ -66,14 +66,14 @@ class DynamicControlsTest
     context.loading.wait_until(&:present?)
     context.loading.wait_while(&:present?)
     expect(context.enabled_input.attribute_list.include?(:disabled)).to be(false)
-    expect(context.disable_button.present?).to be(true)  
+    expect(context.disable_button.present?).to be(true)
     context.browser.close
     context.browser.quit
-  end 
+  end
 
   def caso_5 #check Disable button functionality
-    driver = Driver.new 
-    context = Main.new(driver.new_browser)  
+    driver = Driver.new
+    context = Main.new(driver.new_browser)
     context.go_to('https://the-internet.herokuapp.com/')
     context.dynamic_controls_link.click
     context = DynamicControls.new(context.browser)
@@ -89,7 +89,7 @@ class DynamicControlsTest
     context.browser.close
     context.browser.quit
   end
-end 
+end
 
 test1 = DynamicControlsTest.new
 test1.caso_1
