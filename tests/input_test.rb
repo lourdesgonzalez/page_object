@@ -61,3 +61,4 @@ test1 = InputsTest.new
 test1.caso_1
 test1.caso_2
 test1.caso_3
+
